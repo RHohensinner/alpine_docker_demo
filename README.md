@@ -20,14 +20,14 @@ Substitute your DockerHub `username` in place of `username` in the image tag bel
 
 `docker run -it --rm username/cc-minimal:latest /bin/ash`
 
-3. Test Install Python Packages
+3. Testing Your Code Packages
 
-For example, `~# pip install -y numpy`
 
-*Exercise: Decide on changes you would like to make to the python installation, which is currently Python 3.9. 
-Rewrite the Dockerfile *
+*Exercise 1: Decide on packages to add to python, for example something like, `~# pip install -y numpy`. Rewrite the Dockerfile to include the installations. A pip best Practices hint is in the Dockerfile comments.*
 
-***Repeat Steps 1-3, until you feel ready to push***
+***Repeat Steps 1-3, until you finish exercise 1***
+
+*Exercise 2: Make a requirements.txt file to version lock your installed packages. The command to do this is `pip freeze > requirements.txt`. You will need to do this inside the running container. This can be accomplished by mounting a volume with the `-v` flag in `docker run` so you retain the output of the `pip freeze > requirements.txt`. Now you can edit the Dockerfile a final time and add lines to `COPY` the `requirements.txt` to the root directory, `RUN` `pip install -r requirements.txt`, and remember to `pip cache purge` and `rm` the requirements.txt at the end of the build.*
 
 4. Push
 
