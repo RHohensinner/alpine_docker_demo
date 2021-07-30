@@ -16,11 +16,6 @@ Substitute your DockerHub username in place of `rbartelme` in the image tag belo
 
 `docker build rbartelme/cc-minimal:latest .`
 
-*Optional*
-
-Use `buildx` to build for different CPU architectures:
-
-`docker buildx `
 
 
 **Caveats:**
